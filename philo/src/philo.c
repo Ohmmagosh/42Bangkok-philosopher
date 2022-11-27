@@ -6,12 +6,11 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 19:21:14 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:26:46 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-#include <pthread.h>
 
 void	*routine(void *arg)
 {

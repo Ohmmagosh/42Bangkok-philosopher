@@ -6,12 +6,11 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:00:03 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 04:20:22 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:27:14 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-#include <limits.h>
 
 static int	ft_isdigit(char c)
 {
