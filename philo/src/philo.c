@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 19:26:46 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:30:16 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ int	create_philo(t_pro *p)
 	p->philo = (t_philo *)malloc(sizeof(t_philo) * p->philo_c);
 	if (!p->philo)
 		return (0);
-	while(i < p->philo_c)
+	while (i < p->philo_c)
 	{
 		if (i == p->philo_c -1)
 			p->philo[i].fork_left = 0;
 		else
-			p->philo[i].fork_left = i+1;
+			p->philo[i].fork_left = i +1;
 		p->philo[i].fork_right = i;
 		i++;
 	}
@@ -118,24 +118,6 @@ int	create_phread(t_pro *p)
 		i++;
 	}
 	if (pthread_join(p->chk, NULL) != 0)
-		return (0);
-	return (1);
-}
-
-int	detach_destroy(t_pro *p)
-{
-	int	i;
-
-	i = 0;
-	while (i < p->philo_c)
-	{
-		if (pthread_detach(p->philo[i].pt) != 0)
-			return (0);
-		if (pthread_mutex_destroy(&p->fork[i]) != 0)
-			return (0);
-		i++;
-	}
-	if (pthread_mutex_destroy(p->table) != 0)
 		return (0);
 	return (1);
 }

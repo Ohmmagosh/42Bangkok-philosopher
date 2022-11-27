@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:00:03 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 19:27:14 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:35:44 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	chk_digit(int ac, char **av)
 
 int	chk_positive(int ac, t_pro *p)
 {
-	if (p->info.t_die < 0 ||p->info.t_eat < 0 || p->info.t_sleep < 0)
+	if (p->info.t_die < 0 || p->info.t_eat < 0 || p->info.t_sleep < 0)
 		return (0);
 	if (p->philo_c < 0)
 		return (0);
@@ -53,7 +53,8 @@ int	chk_positive(int ac, t_pro *p)
 
 int	chk_minmax(int ac, t_pro *p)
 {
-	if (p->info.t_die > INT_MAX ||p->info.t_eat > INT_MAX || p->info.t_sleep > INT_MAX)
+	if (p->info.t_die > INT_MAX || p->info.t_eat > INT_MAX \
+		|| p->info.t_sleep > INT_MAX)
 		return (0);
 	if (p->philo_c > INT_MAX)
 		return (0);

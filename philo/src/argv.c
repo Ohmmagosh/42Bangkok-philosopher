@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 23:30:32 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 19:00:19 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/11/27 21:34:02 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(char *str)
 		str++;
 	if (*str == '+' || *str == '-')
 	{
-	if (*str == '-')
+		if (*str == '-')
 			opt *= -1;
 		str++;
 	}
@@ -75,7 +75,7 @@ int	chk_argv(int ac, t_pro *p)
 {
 	if (!chk_positive(ac, p))
 		return (0);
-	if (!chk_minmax(ac ,p))
+	if (!chk_minmax(ac, p))
 		return (0);
 	return (1);
 }
