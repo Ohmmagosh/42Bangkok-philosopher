@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/01 00:12:40 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/01 00:31:07 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ int	routine(t_pro *p, int index)
 {
 	struct timeval	time;
 	
-	p->index = index;
 	
-	gettimeofday(&(p->info.time_v), NULL);
+	p->index = index;
 	gettimeofday(&(p->time_p), NULL);
 	while (p->alive)
 	{
@@ -107,6 +106,7 @@ int	process(t_pro *p)
 	
 	while (i < p->philo_c)
 	{
+
 		gettimeofday(&(p->info.time_v), NULL);
 		pid[i] = fork();
 		if (pid[i] == 0)
