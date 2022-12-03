@@ -6,13 +6,13 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 22:06:30 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 22:09:17 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/04 00:54:07 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	philo_eat_forkright(t_pro *p, struct timeval time, int i)
+int	philo_eat_rightfork(t_pro *p, struct timeval time, int i)
 {
 	pthread_mutex_lock(&p->fork[p->philo[i].fork_right]);
 	gettimeofday(&time, NULL);
@@ -22,13 +22,13 @@ int	philo_eat_forkright(t_pro *p, struct timeval time, int i)
 		return (0);
 	}
 	pthread_mutex_lock(p->table);
-	printf("%ldms %d has taken a fork\n", \
-		get_time(p->info.time_v, time), p->philo[i].id);
+	printf("%s%ldms %d has taken a fork%s\n", \
+		BYEL, get_time(p->info.time_v, time), p->philo[i].id, RES);
 	pthread_mutex_unlock(p->table);
 	return (1);
 }
 
-int	philo_eat_forkleft(t_pro *p, struct timeval time, int i)
+int	philo_eat_leftfork(t_pro *p, struct timeval time, int i)
 {
 	pthread_mutex_lock(&p->fork[p->philo[i].fork_left]);
 	gettimeofday(&time, NULL);
@@ -40,8 +40,8 @@ int	philo_eat_forkleft(t_pro *p, struct timeval time, int i)
 		return (0);
 	}
 	pthread_mutex_lock(p->table);
-	printf("%ldms %d has taken a fork\n", get_time(p->info.time_v, time), \
-		p->philo[i].id);
+	printf("%s%ldms %d has taken a fork%s\n", BBLU, \
+		get_time(p->info.time_v, time), p->philo[i].id, RES);
 	printf("%ldms %d is eating\n", get_time(p->info.time_v, time), \
 		p->philo[i].id);
 	if (p->info.e_philo != -1 && p->info.e_philo != 0)
@@ -49,7 +49,7 @@ int	philo_eat_forkleft(t_pro *p, struct timeval time, int i)
 	if (p->philo[i].len_eat == p->info.e_philo)
 		p->each_eat++;
 	pthread_mutex_unlock(p->table);
-	my_usleep(p->info.t_eat);
+	my_usleep(p->info.t_eat, p);
 	pthread_mutex_unlock(&p->fork[p->philo[i].fork_left]);
 	pthread_mutex_unlock(&p->fork[p->philo[i].fork_right]);
 	return (1);
@@ -62,7 +62,7 @@ int	philo_sleep(t_pro *p, struct timeval time, int i)
 		return (0);
 	printf("%ldms %d is sleeping\n", get_time(p->info.time_v, time), \
 		p->philo[i].id);
-	my_usleep(p->info.t_sleep);
+	my_usleep(p->info.t_sleep, p);
 	return (1);
 }
 

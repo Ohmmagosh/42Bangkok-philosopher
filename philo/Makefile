@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/12 09:56:34 by psuanpro          #+#    #+#              #
-#    Updated: 2022/11/27 04:05:48 by psuanpro         ###   ########.fr        #
+#    Created: 2022/12/04 00:54:31 by psuanpro          #+#    #+#              #
+#    Updated: 2022/12/04 02:39:02 by psuanpro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,12 @@ SRC = main.c \
 	  $(SRCCHK)
 
 OBJS = $(SRC:.c=.o)
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -pthread
 CC =  gcc
-INLIB = -pthread
 COMPILE = echo Philo Compiled...
 
 $(NAME): $(OBJS)
-		@$(CC) $(CFLAG) $(INLIB) $(OBJS) -o $(NAME) -g
+		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g
 		@$(COMPILE)
 
 all: $(NAME)

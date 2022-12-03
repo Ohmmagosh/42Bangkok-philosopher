@@ -6,11 +6,12 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 21:30:16 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/04 02:40:07 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
+#include <sys/time.h>
 
 void	*routine(void *arg)
 {
@@ -18,14 +19,15 @@ void	*routine(void *arg)
 	int				i;
 	struct timeval	time;
 
+	gettimeofday(&time, NULL);
 	p = (t_pro *)arg;
 	i = p->index;
 	p->philo[i].time_p = p->info.time_v;
 	while (p->alive)
 	{
-		if (!philo_eat_forkright(p, time, i))
+		if (!philo_eat_rightfork(p, time, i))
 			return (NULL);
-		if (!philo_eat_forkleft(p, time, i))
+		if (!philo_eat_leftfork(p, time, i))
 			return (NULL);
 		if (!philo_sleep(p, time, i))
 			return (NULL);
@@ -44,6 +46,8 @@ int	philo(t_pro *p)
 	if (!create_phread(p))
 		return (0);
 	if (!detach_destroy(p))
+		return (0);
+	if (!free_philo(p))
 		return (0);
 	return (1);
 }

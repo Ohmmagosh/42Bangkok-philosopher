@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 23:30:32 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/30 22:20:54 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/04 01:50:14 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,9 @@ int	get_av(int ac, char **av, t_pro *p)
 
 void	init_argv(int ac, char **av, t_pro *p)
 {
-	
 	p->alive = 1;
 	p->philo_c = ft_atoi(av[1]);
-	p->info.t_die = ft_atoi(av[2]) * 1000;
+	p->info.t_die = ft_atoi(av[2]);
 	p->info.t_eat = ft_atoi(av[3]) * 1000;
 	p->info.t_sleep = ft_atoi(av[4]) * 1000;
 	p->info.e_philo = -1;
@@ -82,8 +81,8 @@ int	chk_argv(int ac, t_pro *p)
 
 int	print_error(void)
 {
-	putstr_fd(2, "./philo <1> <2> <3> <4> <5>\n");
-	putstr_fd(2, "1 -> N of philo\n");
+	putstr_fd(2, "./philo <1> <2> <3> <4> <5> #UINT ONLY\n");
+	putstr_fd(2, "1 -> N of philo \n");
 	putstr_fd(2, "2 -> N of time to die\n");
 	putstr_fd(2, "3 -> N of time to eat\n");
 	putstr_fd(2, "4 -> N of time to sleep\n");

@@ -6,7 +6,7 @@
 #    By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 09:56:34 by psuanpro          #+#    #+#              #
-#    Updated: 2022/11/29 00:50:02 by psuanpro         ###   ########.fr        #
+#    Updated: 2022/12/04 02:08:17 by psuanpro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ SRC = main_bonus.c \
 	  $(SRCCHK)
 
 OBJS = $(SRC:.c=.o)
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -pthread
 CC =  gcc
-INLIB = -pthread
+# INLIB = -pthread #-fsanitize=address
 COMPILE = echo Philo Compiled...
 
 $(NAME): $(OBJS)
-		@$(CC) $(CFLAG) $(INLIB) $(OBJS) -o $(NAME) -g
+		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g
 		@$(COMPILE)
 
 all: $(NAME)
