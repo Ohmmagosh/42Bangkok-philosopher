@@ -6,12 +6,11 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 01:54:43 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/04 02:36:57 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/04 20:46:59 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo_bonus.h"
-#include <sys/semaphore.h>
 
 void	*chk_die(void *arg)
 {

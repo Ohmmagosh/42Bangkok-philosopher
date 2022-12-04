@@ -6,14 +6,11 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/04 02:11:43 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/04 20:46:03 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo_bonus.h"
-#include <signal.h>
-#include <sys/signal.h>
-#include <sys/time.h>
 
 int	routine(t_pro *p, int index)
 {
@@ -81,6 +78,7 @@ int	process(t_pro *p)
 int	process_utils(t_pro *p, int status)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (i < p->philo_c)
@@ -88,11 +86,11 @@ int	process_utils(t_pro *p, int status)
 		waitpid(-1, &status, 0);
 		if (WEXITSTATUS(status) == PHILO_DIED)
 		{
-			i = 0;
+			j = 0;
 			while (i < p->philo_c)
 			{
 				kill(p->pid[i], SIGKILL);
-				i++;
+				j++;
 			}
 			break ;
 		}
