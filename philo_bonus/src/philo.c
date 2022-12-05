@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 02:52:47 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/04 20:46:03 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:21:36 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int	process_utils(t_pro *p, int status)
 		if (WEXITSTATUS(status) == PHILO_DIED)
 		{
 			j = 0;
-			while (i < p->philo_c)
+			while (j < p->philo_c)
 			{
-				kill(p->pid[i], SIGKILL);
+				kill(p->pid[j], SIGKILL);
 				j++;
 			}
 			break ;

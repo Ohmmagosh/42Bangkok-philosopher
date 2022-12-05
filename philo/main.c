@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 23:24:20 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/11/27 22:10:37 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/05 20:33:21 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int ac, char **av)
 	{
 		if (!get_av(ac, av, &p))
 			return (print_error());
+		if (p.philo_c == 1)
+			return (one_philo(&p));
 		if (!philo(&p))
 			return (print_error());
 	}
@@ -27,3 +29,4 @@ int	main(int ac, char **av)
 		print_error();
 	return (0);
 }
+

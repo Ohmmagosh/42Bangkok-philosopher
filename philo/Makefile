@@ -6,7 +6,7 @@
 #    By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/04 00:54:31 by psuanpro          #+#    #+#              #
-#    Updated: 2022/12/04 02:39:02 by psuanpro         ###   ########.fr        #
+#    Updated: 2022/12/05 20:30:47 by psuanpro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCCHK = ./src/argv.c \
 		 ./src/philo.c \
 		 ./src/philo_utils.c \
 		 ./src/philo_utils_1.c \
+		 ./src/philo_utils_2.c \
 
 SRC = main.c \
 	  $(SRCCHK)

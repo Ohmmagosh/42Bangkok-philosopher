@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:59:23 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/04 00:10:03 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:30:26 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		philo_sleep(t_pro *p, struct timeval time, int i);
 int		chk_eat(t_pro *p, int i);
 int		detach_destroy(t_pro *p);
 int		free_philo(t_pro *p);
+int		one_philo(t_pro *p);
 void	*routine(void *arg);
 void	init_argv(int ac, char **av, t_pro *p);
 void	putstr_fd(int fd, char *s);
