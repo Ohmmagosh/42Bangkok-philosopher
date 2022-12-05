@@ -6,7 +6,7 @@
 /*   By: psuanpro <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:29:44 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/12/05 20:33:27 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:47:28 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	*one_routine(void *arg)
 {
 	t_pro	*p;
+
 	p = (void *)arg;
 	pthread_mutex_lock(&p->fork[p->philo[0].fork_right]);
 	printf("%s%dms 1 has take fork%s\n", BYEL, 0, RES);
@@ -30,7 +31,8 @@ int	one_philo(t_pro *p)
 		return (0);
 	p->philo = (t_philo *)malloc(sizeof(t_philo) * p->philo_c);
 	p->philo[0].fork_right = 0;
-	pthread_create(&(p->philo[0].pt), NULL, one_routine, p);
+	if (pthread_create(&(p->philo[0].pt), NULL, one_routine, p) == -1)
+		return (0);
 	pthread_join(p->philo[0].pt, NULL);
 	pthread_detach(p->philo[0].pt);
 	pthread_mutex_destroy(p->fork);
